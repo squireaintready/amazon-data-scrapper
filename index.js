@@ -4,7 +4,7 @@ const request = require('request-promise')
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const generateScraperUrl = (api_key) => `http://api.scraperapi.com?api_key=${api_key}&autoparse=true`
+const generateScraperUrl = (apiKey) => `http://api.scraperapi.com?api_key=${apiKey}&autoparse=true`
 
 app.use(express.json());
 
@@ -13,7 +13,7 @@ app.get('/', (req, res) =>{
 });
 
 // GET PRODUCT DETAILS
-app.get('/products/:productId?api_key=', async(req, res) =>{
+app.get('/products/:productId', async(req, res) =>{
   const { productId } = req.params;
   const { api_key } = req.query;
 
